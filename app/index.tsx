@@ -31,7 +31,7 @@ export default function ListPage() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="bg-white pt-12 pb-6 px-6 shadow-sm">
+      <View className="bg-white pt-12 pb-6 px-6 shadow-sm items-center">
         <Text className="text-3xl font-bold text-gray-900">
           Recollect
         </Text>
@@ -40,14 +40,16 @@ export default function ListPage() {
         </Text>
       </View>
 
-      {/* List */}
-      <FlatList
-        data={items}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={{ padding: 24 }}
-        showsVerticalScrollIndicator={false}
-      />
+      {/* List - Centered with max width */}
+      <View className="flex-1 items-center">
+        <FlatList
+          data={items}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ padding: 24, maxWidth: 600, width: '100%' }}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
     </View>
   );
 }
